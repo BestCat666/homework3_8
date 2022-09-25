@@ -39,27 +39,29 @@ int [,] SelectionSort(int[,]array)
 {
     int rows = array.GetLength(0);
     int colums = array.GetLength(1);
-    int[,] TempArr = new int[rows,colums];
+    //int[,] TempArr = new int[rows,colums];
     for (int i = 0; i < rows; i++)
     {
-    for (int j = 0; j < colums; j++)
+    for (int j = 0; j < colums-1; j++)
     {
-    for (int k = 0; k < rows; k++)
+    //for (int k = i; k < colums; k++)
+    //{
+    //for (int m = j + 1; m < colums/2; m++)
+    //{  
+    //TempArr[k,m] = array[i,j];
+    int max = array[i,j];
+    if(array[i,j] >= array[i,j +1]) 
+    max = array[i,j+1];
     {
-    for (int m = j + 1; m < colums; m++)
-    {  
-    int maxPos = array[i,j]; 
-    if(array[k,m] > maxPos) maxPos = TempArr[k,m];
-    {
-    array[i,j] = maxPos;
-    array[i,j] = TempArr[k,m];
-    TempArr[k,m] = array[i,j];
+     int temp = array[i,j];
+     array[i,j] = array[i,j+1];
+    array[i,j+1] = temp;
     }   
     }
     }
-}
-}
-return TempArr;
+//}
+//}
+return array;
 }
 
 PrintArray(array);
