@@ -33,26 +33,23 @@ void PrintArray(int[,] inArray)
     }
 }
 
-int SumColums(int[,]array)
+int SumRows(int[,]array)
 {
-    int sum = 0;
+    int sum = 0;              
     int rows = array.GetLength(0);
     int colums = array.GetLength(1);
-    //for (int count = 0; count < (rows * colums - 1) ; count++)
-    //{  
     for (int  i = 0; i < rows; i++)
     {
     for (int j = 0; j < colums; j++) 
-    {  
+    {   
     sum = sum + array[i,j];
     Console.WriteLine($"{sum} ");  
     }
     }
-    //}
+    
     return sum; 
 }
-
 PrintArray(array);
-SumColums(array);
+SumRows(array);
 Console.WriteLine();
 //PrintArray(array);
